@@ -1,13 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+
+const mail = require('./Routes/mail-router');
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 
 //cors middleware
-app.use(cors({
-    origin: '*'
-}));
+    // global cors policy
+    app.UseCors(builder => builder
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials()
+    );
 app.use(
     express.urlencoded({
         extended: false,
@@ -21,7 +27,6 @@ app.use(
 );
 
 
-const mail = require('./Routes/mail-router');
 // const client =require('./routes/client');
 
 
