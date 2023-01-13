@@ -25,7 +25,7 @@ const clientMail = async(req, res, next) => {
         });
         var mailOptions = {
             from: process.env.Email,
-            to: process.env.ClientMail,
+            to: process.env.CareerMail,
             subject: "Enquiry mail ",
             html: `<h1><strong>Name: </strong>${name}</h1> </br>
         <h1><strong>Email: </strong>${email}</h1> </br>

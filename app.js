@@ -5,9 +5,7 @@ require("dotenv").config();
 const port = process.env.PORT || 3000;
 
 //cors middleware
-app.use(cors({
-    origin: '*'
-}));
+app.options('*', cors())
 app.use(
     express.urlencoded({
         extended: false,
@@ -24,9 +22,7 @@ app.use(
 const mail = require('./Routes/mail-router');
 
 //cors middleware
-app.use(cors({
-    origin: '*'
-}));
+
 app.use("/mail", mail);
 
 app.get("/", (req, res) => {
