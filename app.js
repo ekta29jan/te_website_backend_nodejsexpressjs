@@ -4,31 +4,31 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 
-app.use(cors({
-    origin: '*'
-}));
+// app.use(cors({
+//     origin: '*'
+// }));
 
 
- app.use(function (req, res, next) {
-    //Enabling CORS
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-      next();
-    });
+//  app.use(function (req, res, next) {
+//     //Enabling CORS
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+//       next();
+//     });
 
 
-app.use(
-    express.urlencoded({
-        extended: false,
-        limit: "20mb",
-    })
-);
-app.use(
-    express.json({
-        limit: "20mb",
-    })
-);
+// app.use(
+//     express.urlencoded({
+//         extended: false,
+//         limit: "20mb",
+//     })
+// );
+// app.use(
+//     express.json({
+//         limit: "20mb",
+//     })
+// );
 
 
 const mail = require('./Routes/mail-router');
