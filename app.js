@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(cors({
     origin: '*'
 }));
-var allowedOrigins = ['http://localhost:3000',
+var allowedOrigins = [
                       'https://zany-plum-millipede-gown.cyclic.app'];
 app.use(cors({
   origin: function(origin, callback){
