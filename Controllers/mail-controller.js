@@ -32,7 +32,7 @@ const clientMail = async(req, res, next) => {
         <h1><strong>Phone: </strong>${phone}</h1> </br>
         <h1><strong>Message: </strong>${description}</h1> </br>`,
         };
-         transporter.sendMail(mailOptions, function(error, info) {
+        await  transporter.sendMail(mailOptions, function(error, info) {
             if (error) {
                 console.log(error)
                 res.status(404).json({
@@ -131,7 +131,7 @@ const sendAccToClient = async(req, res, next) => {
     });
     var mailOptions = {
         from: process.env.Email,
-        to: req.email,
+        to: req.emailId,
         subject: 'Techno Elevate',
         html: EmailTemplate
 
