@@ -3,10 +3,10 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 3000;
-
-app.use(cors({
-    origin: '*'
-}));
+let corsOptions = {
+    origin : ['https://zany-plum-millipede-gown.cyclic.app'],
+ }
+app.use(cors(corsOptions));
 
 app.use(
     express.urlencoded({
