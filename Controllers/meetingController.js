@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const path = require('path')
 const fs = require('fs')
-const ical = require('ical-generator');
+// const ical = require('ical-generator');
 
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
