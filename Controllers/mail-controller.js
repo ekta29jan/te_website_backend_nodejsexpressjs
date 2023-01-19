@@ -4,6 +4,7 @@ const fs = require('fs')
 
 const ThanksEmail = path.join(__dirname, '../view/email.html');
 
+
 const clientMail = async(req, res, next) => {
     try {
         const {
