@@ -114,7 +114,6 @@ const careerMail = async(req, res, next) => {
     }
 }
 
-@Crossorigin
 const sendAccToClient = async(req, res, next) => {
     const EmailTemplate = await fs.readFileSync(ThanksEmail, { encoding: 'utf-8' })
     var transporter = nodemailer.createTransport({
