@@ -4,7 +4,9 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 
-
+app.use(cors({
+    origin: '*'
+}));
 var allowedOrigins = [
                       'https://zany-plum-millipede-gown.cyclic.app'];
 app.use(cors({
