@@ -28,15 +28,16 @@ const mail = require('./Routes/mail-router');
 app.use("/mail", mail);
 
 app.get("/", (req, res) => {
+   res.header( 'Access-Control-Allow-Origin', '*')
+  res.header( 'Access-Control-Allow-Credentials', true)
+  res.header( 'Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+  res.header ('Access-Control-Allow-Headers', 'Content-Type')
     res.send("ok");
 });
 
 //error handling middleware
 app.use((err, req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,  Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-      next();
+ 
     res.status(500).json({
         error: true,
         message: "Internal Server Error",
