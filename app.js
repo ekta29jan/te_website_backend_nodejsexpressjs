@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(cors({
     origin: '*'
 }));
+app.UseCors(options => options.WithOrigins("https://zany-plum-millipede-gown.cyclic.app").AllowAnyHeader().AllowAnyMethod().AllowCredentials()); 
 
 app.use(
     express.urlencoded({
@@ -28,6 +29,7 @@ const mail = require('./Routes/mail-router');
 app.use("/mail", mail);
 
 app.get("/", (req, res) => {
+    
     res.send("ok");
 });
 
