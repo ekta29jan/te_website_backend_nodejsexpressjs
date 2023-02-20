@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "technoelevate",
+  "private_key_id": "5275074b087ccaa664cb0f45a74ac9090a007d0e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1Ol6E4ld9ydJd\nUQmUacMh91j1BgICoc6jm05f2ACNSevHOj2+NkNPU/cdyXwnGFouSWLHWyzabiRV\nPAVVObWVGB6AIw0zRlEzvpF/O0KLqkkFVzhAuL2pZVOJ/DUdDa/m7tYFcglSvGJq\nnpmn1f8MN4sMZuDS+jifyHZCzscaYiitQ+Mo0FuKp0O44ei6yIeL2HdBjlNmi30l\nHqoMSpieNKPtrNGM3HBcjfe+4mLXB37DVqjLtnfH4uuAO2kg9qR1bSpvizy/9l03\nSPbcRQ01E9ElZOt3L7BcPR0kq9+ovnXI9XgFUPjRiX2ek27CEG+LpTu1ga3sOv4B\nMMK00jVbAgMBAAECggEACreCamJGITqjlYAazGt6rhIF8StjSAuQgC1Jc7J+ydwi\ntLvVdd+YmGLTPLAzBs7SWmVdkYNrQhl8TYwIlrMccU4lU5d/CtawK5qr2PXEqCSw\nP8AaI/2ovZEv4PuImoi6K7JY9qZ5NarNORfa50lo1SydrOSSi/dfDNfaYnX+4Sju\nUO7O6hNgAUOOGzRFFU8953pI/37F4w6GcWrO5AS5BYq/CdUAYWM2GYENUoIimodV\nxKStp4tWtYQ5EUggRSTbvZ5N55+mPqQd0ywzlwyMJXh8Z5RnaornB3NTTQCjbbqh\nTUPLEt5X/wakTMQmzIxpGVnuVhkq0riQoz4ZQ6hfSQKBgQDkgLaPHOQaCGXJ1wB3\ngy1auwG6RiNtHZiRVxGTR+mT7PHDOvhOsW+cIpVuoxpxRUkfQMoqmyyHbtsp7ux6\netT5Nfw/CCB4uV/oksV+R2e05ES/5jKP1m0elZw6LUtxawz2nrHKyAO667BESwFU\nccv7rASZP/taS0UCwXEIQZkhOQKBgQDLCU2Ps+rMHj43BDzpK24tQ3/gTbSXwXDb\nXFon64rtnxQBdOg4DlklKfE2/zbxfhAhfByj9Xw3K1tpFdY+l4ZQF5LFjwOYT31b\nSoKxq5yhVuCUmEkuN88dhu1Ubck7pp6R1TYDh+rcPh+NUp25beExmiJ0jFjJSCft\n2jSMQpBPMwKBgQCkgJltLGJ272bASX23jIOBVzImNUpZyr3EnIc1ncblzOY8I98R\nYCI2qJsl3Fw0AapjypQA2lfTZJZ5eN1cS8O5agkgI6yk3OfUGp39jFB35QItmP77\nmGZUZ2biZytyCpx5i8P5dcdhsT3j3I+niIlOtQdWgL5mwdt74WGLjRY92QKBgDmR\nW7KBGvPhJ1bGFtct/0FKQDnDDo9ww6UO3GkxOeUCE9QN58HtH42QBNrJJjT2v3Af\nFqfOdPfXjUWQcXyxzd1rsaveTvCiqTJ3P/NMa067qVW4kBdQr6L5nNUxg7ssFQ3Y\nXEZIBWmJG70gTaRD6XP89gQBvzLjCJ9CHWAfh3dNAoGAabjUcBbbUOPyDTk2cZfj\nbylyaNpxc9ZD7AffGxN9NQleyeAugrqxUMJVAN+WyDtOoRt73+ylHaHy0sBmYBhB\n8RPoSbPDXG0lWlQOE05tl3UzCOTKSvQddFQZdW/LSNdd0GKFJM0V/soZWUSQfLLy\nD22+O2pusmo+F/CMUwzcytg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "technoelevate@technoelevate.iam.gserviceaccount.com",
+  "client_id": "102332858898583821630",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/technoelevate%40technoelevate.iam.gserviceaccount.com"
+}

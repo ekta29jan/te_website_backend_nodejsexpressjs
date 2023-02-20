@@ -1,11 +1,12 @@
 const nodemailer = require('nodemailer');
 const path = require('path')
 const fs = require('fs')
-
+const ical = require('ical-generator');
+const Observable = require('rxjs');
 const ThanksEmail = path.join(__dirname, '../view/email.html');
-
-
-const clientMail = async(req, res, next) => {
+const MeetingMail = path.join(__dirname, '../view/meetingemail.html');
+const MeetingEvent = require('../Helpers/event')
+const clientMail = async (req, res, next) => {
     try {
         const {
             name,
@@ -33,7 +34,7 @@ const clientMail = async(req, res, next) => {
         <h1><strong>Phone: </strong>${phone}</h1> </br>
         <h1><strong>Message: </strong>${description}</h1> </br>`,
         };
-        transporter.sendMail(mailOptions, function(error, info) {
+        transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error)
                 res.status(404).json({
@@ -56,7 +57,7 @@ const clientMail = async(req, res, next) => {
     }
 }
 
-const careerMail = async(req, res, next) => {
+const careerMail = async (req, res, next) => {
     try {
         const {
             fullName,
@@ -92,7 +93,7 @@ const careerMail = async(req, res, next) => {
                     path: req.body.file
                 }]
             };
-            await transporter.sendMail(mailOptions, function(error) {
+            await transporter.sendMail(mailOptions, function (error) {
                 if (error) {
                     console.log("Error sending mail", error);
                 } else {
@@ -115,7 +116,7 @@ const careerMail = async(req, res, next) => {
     }
 }
 
-const sendAccToClient = async(req, res, next) => {
+const sendAccToClient = async (req, res, next) => {
     const EmailTemplate = await fs.readFileSync(ThanksEmail, { encoding: 'utf-8' })
     var transporter = nodemailer.createTransport({
         host: 'smtpout.secureserver.net',
@@ -134,9 +135,9 @@ const sendAccToClient = async(req, res, next) => {
         subject: 'Techno Elevate',
         html: EmailTemplate
 
-        };
-        
-    await transporter.sendMail(mailOptions, function(error) {
+    };
+
+    await transporter.sendMail(mailOptions, function (error) {
         if (error) {
             console.log("Error sending mail", error);
         } else {
@@ -146,8 +147,7 @@ const sendAccToClient = async(req, res, next) => {
 }
 
 
-
-const sendAccToCandidate = async(req, res, next) => {
+const sendAccToCandidate = async (req, res, next) => {
     const EmailTemplate = await fs.readFileSync(ThanksEmail, { encoding: 'utf-8' })
     var transporter = nodemailer.createTransport({
         host: "smtpout.secureserver.net",
@@ -167,7 +167,7 @@ const sendAccToCandidate = async(req, res, next) => {
         html: EmailTemplate
 
     };
-    await transporter.sendMail(mailOptions, function(error) {
+    await transporter.sendMail(mailOptions, function (error) {
         if (error) {
             console.log("Error sending mail", error);
         } else {
@@ -177,7 +177,91 @@ const sendAccToCandidate = async(req, res, next) => {
 
 }
 
-module.exports = {
-    clientMail,
-    careerMail
+
+const meetingMail = async (req, res, next) => {
+  await  MeetingEvent.meetLink()
+  const EmailTemplate = await fs.readFileSync(ThanksEmail, { encoding: 'utf-8' })
+    // const EmailTemplate = await fs.readFileSync(MeetingMail, { encoding: 'utf-8' })
+    // let template = await fs.readFileSync(usercreation, { encoding: "utf-8" });
+    // if (template) {
+    //   let htmlString = template.toString();
+    //   template = htmlString.replace(new RegExp("CHANGENAMEHERE", "g"), name);
+    //   template = template.replace(
+    //     new RegExp("ACTIVATIONLINK", "g"),
+    //     `${config.DOMAINB}/auth/checktoken/${token}`
+    //   );
+    // }
+  
+  
+    try {
+        const {
+            firstName,
+            lastName,
+            emailId,
+            currentCompany,
+            reasontoVisit
+
+        } = req.body
+       
+        var transporter = nodemailer.createTransport({
+            host: "smtpout.secureserver.net",
+            port: 465,
+            secure: false,
+            requireTLS: true,
+            service: "Godaddy",
+            auth: {
+                user: process.env.Email,
+                pass: process.env.Password,
+            },
+        });
+        var mailOptions = {
+            from: process.env.Email,
+            to: ['ekku.myself29@gmail.com','ekta.s@testyantra.in'],
+            subject: "Meeting Confirmation Mail",
+            html:  EmailTemplate
+        };
+      
+         
+        await transporter.sendMail(mailOptions,
+            
+            // calendarObj = null, function (error, response) {
+          
+        //     if (calendarObj) {
+        //         let alternatives = {
+        //             "Content-Type": "text/calendar",
+        //             "method": "REQUEST",
+        //             "content": new Buffer(calendarObj.toString()),
+        //             "component": "VEVENT",
+        //             "Content-Class": "urn:content-classes:calendarmessage"
+        //         }
+        //         mailOptions['alternatives'] = alternatives;
+        //         mailOptions['alternatives']['contentType'] = 'text/calendar'
+        //         mailOptions['alternatives']['content']
+        //             = new Buffer(calendarObj.toString())
+        //     }
+        //         if (error) {
+        //             console.log(error);
+    
+        //         } else {
+                  
+        //             console.log("Message sent: ", response);
+        //         }
+        // }
+       
+        ) 
+
+    }
+    
+    catch (err) {
+        next(err.message)
+    }
+   
 }
+
+
+    module.exports = {
+        clientMail,
+        meetingMail,
+        careerMail
+    }
+  
